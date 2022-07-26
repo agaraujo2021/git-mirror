@@ -2,16 +2,13 @@ FROM golang:1.11
 
 MAINTAINER André Araujo <andre.araujo@extreme.digital>
 
-RUN mkdir -p /go/src/github.com/openshift/golang-ex
+RUN mkdir -p /go/src/app
+WORKDIR /go/src/app
+COPY . /go/src/app
+ADD https://github.com/beefsack/git-mirror/releases/download/v0.1.0/git-mirror_0.1.0_linux_amd64.tar.gz /go/src/app
+RUN tar -zxvf git-mirror_0.1.0_linux_amd64.tar.gz \
+    && cp git-mirror_0.1.0_linux_amd64/git-mirror /go/src/
+ENTRYPOINT ["./git-mirror"]
+CMD ["config.toml"]
 
-WORKDIR /go/src/github.com/openshift/golang-ex
-
-COPY . /go/src/github.com/openshift/golang-ex
-
-ADD https://github.com/beefsack/git-mirror/releases/download/v0.1.0/git-mirror_0.1.0_linux_amd64.tar.gz /go/src/github.com/openshift/golang-ex
-
-RUN tar -zxvf git-mirror_0.1.0_linux_amd64.tar.gz
-    && cp git-mirror_0.1.0_linux_amd64/git-mirror /opt
-
-CMD ["./git-mirror","config.toml"]
 
