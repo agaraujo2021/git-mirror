@@ -6,8 +6,5 @@ RUN mkdir -p /go/src/app
 WORKDIR /go/src/app
 COPY . /go/src/app
 
-COPY ./target /opt
-WORKDIR /opt
-
 ENTRYPOINT ["./git-mirror"]
 CMD ["config.toml"]
