@@ -1,4 +1,4 @@
-FROM ubi8
+FROM centos8
 
 MAINTAINER André Araujo <andre.araujo@extreme.digital>
 
