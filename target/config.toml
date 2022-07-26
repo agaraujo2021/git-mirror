@@ -1,7 +1,0 @@
-ListenAddr   = ":8080"
-Interval     = "2m"
-BasePath = "/tmp/mirror"
-[[Repo]]
-Origin = "https://$GIT_USER1:$GIT_PASS1@$GIT_REPO1"
-[[Repo]]
-Origin = "https://$GIT_USER2:$GIT_PASS2@$GIT_REPO2"
