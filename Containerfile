@@ -1,12 +1,10 @@
-FROM golang:1.18-bullseye
+FROM golang:1.13-alpine
 
 MAINTAINER André Araujo <andre.araujo@extreme.digital>
 
-
-RUN go install github.com/beego/bee/v2@latest
-
-ENV GO111MODULE=on
-ENV GOFLAGS=-mod=vendor
+COPY --from=golang:1.13-alpine /usr/local/go/ /usr/local/go/
+ 
+ENV PATH="/usr/local/go/bin:${PATH}"
 
 COPY ./target /opt
 WORKDIR /opt
