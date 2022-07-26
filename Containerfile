@@ -1,13 +1,13 @@
-FROM golang:1.13-alpine
+FROM golang:1.11
 
 MAINTAINER André Araujo <andre.araujo@extreme.digital>
 
-COPY --from=golang:1.13-alpine /usr/local/go/ /usr/local/go/
- 
-ENV PATH="/usr/local/go/bin:${PATH}"
+RUN mkdir -p /go/src/app
+WORKDIR /go/src/app
+COPY . /go/src/app
 
 COPY ./target /opt
 WORKDIR /opt
 
-ENTRYPOINT ["/opt/git-mirror"]
+ENTRYPOINT ["./git-mirror"]
 CMD ["config.toml"]
