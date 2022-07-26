@@ -1,11 +1,6 @@
-FROM centos8
+FROM alpine:3.15
 
 MAINTAINER André Araujo <andre.araujo@extreme.digital>
-
-RUN yum update -y \
- && yum install -y git \
- && yum install -y curl \ 
- && yum clean all 
 
 COPY ./target /opt 
 
