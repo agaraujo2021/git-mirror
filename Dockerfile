@@ -2,9 +2,14 @@ FROM golang:1.11
 
 MAINTAINER André Araujo <andre.araujo@extreme.digital>
 
-RUN mkdir -p /go/src/app
+RUN mkdir -p /script
+
+COPY update_repo.sh /script
+
+RUN chmod +x /script/update_repo.sh
 
 RUN mkdir -p /go/src/app/conf
+
 VOLUME /go/src/app/conf
 
 WORKDIR /go/src/app
