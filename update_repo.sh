@@ -11,9 +11,9 @@ sync(){
  while read -r reponame
  do
     cd $DIR/$reponame
-    EXISTS=$(git remote show|grep $repo-name |wc -l)
+    EXISTS=$(git remote show|grep $reponame |wc -l)
     if [ $EXISTS -eq 0 ]; then
-          #git remote add $reponame http://$USERNAME:$USERPW@www.gitlab.proderj.rj.gov.br:8081/rj-digital/$reponame
+          #git remote add $reponame http://$USERNAME:$USERPW1@www.gitlab.proderj.rj.gov.br:8081/rj-digital/$reponame
           #git push --all $reponame
           echo "Remote repo not exists"
         else
