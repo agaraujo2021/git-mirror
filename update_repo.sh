@@ -14,7 +14,7 @@ sync(){
     EXISTS=$(git remote show|grep $reponame |wc -l)
     if [ $EXISTS -eq 0 ]; then
           echo "Remote repo not exists."
-          git remote add $reponame http://$USERNAME:$USERPW@www.gitlab.proderj.rj.gov.br:8081/rj-digital/$reponame
+          git remote add $reponame http://$USERNAME:$USERPW1@www.gitlab.proderj.rj.gov.br:8081/rj-digital/$reponame
           git push --all $reponame
           echo "Remote repo created and updated."
         else
